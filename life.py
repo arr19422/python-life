@@ -10,11 +10,12 @@ class Life(object):
         self.screen.fill((0, 0, 0))
     
     def initial(self, width, height):
-        for i in range(0, 50):
+        for i in range(0, 10):
             x = random.randint(0, width)
             y = random.randint(0, height)
             self.pixel(x, y, (255,255,255))
 
+            # Figura 1
             self.pixel(x-1, y-1, (255,255,255))
             self.pixel(x+1, y-1, (255,255,255))
             self.pixel(x-2, y-2, (255,255,255))
@@ -26,6 +27,28 @@ class Life(object):
             self.pixel(x-2, y+2, (255,255,255))
             self.pixel(x, y+2, (255,255,255))
             self.pixel(x+2, y+2, (255,255,255))
+
+            # Figura 2
+            # self.pixel(x-1, y-1, (255,255,255))
+            # self.pixel(x+1, y-1, (255,255,255))
+            # self.pixel(x-2, y-2, (255,255,255))
+            # self.pixel(x+2, y-2, (255,255,255))
+
+            # self.pixel(x-1, y+1, (255,255,255))
+            # self.pixel(x+1, y+1, (255,255,255))
+            # self.pixel(x-2, y+2, (255,255,255))
+            # self.pixel(x+2, y+2, (255,255,255))
+         
+            # Figura 3
+            # self.pixel(x-1, y, (255,255,255))
+            # self.pixel(x+1, y, (255,255,255))
+            # self.pixel(x-1, y-1, (255,255,255))
+            # self.pixel(x+1, y+1, (255,255,255))
+
+            # self.pixel(x-2, y-2, (255,255,255))
+            # self.pixel(x-2, y+1, (255,255,255))
+            # self.pixel(x+2, y-1, (255,255,255))
+            # self.pixel(x+2, y+2, (255,255,255))
             pygame.display.flip()
 
     def pixel(self, x, y, color):
