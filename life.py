@@ -9,15 +9,23 @@ class Life(object):
     def clear(self):
         self.screen.fill((0, 0, 0))
     
-    def initial(self):
-        for i in range(0, 200):
-            x = random.randint(0, 199)
-            y = random.randint(0, 199)
+    def initial(self, width, height):
+        for i in range(0, 50):
+            x = random.randint(0, width)
+            y = random.randint(0, height)
             self.pixel(x, y, (255,255,255))
-            self.pixel(x, y-1, (255,255,255))
+
+            self.pixel(x-1, y-1, (255,255,255))
+            self.pixel(x+1, y-1, (255,255,255))
+            self.pixel(x-2, y-2, (255,255,255))
             self.pixel(x, y-2, (255,255,255))
-            self.pixel(x-1, y, (255,255,255))
-            self.pixel(x-2, y-1, (255,255,255))
+            self.pixel(x+2, y-2, (255,255,255))
+
+            self.pixel(x-1, y+1, (255,255,255))
+            self.pixel(x+1, y+1, (255,255,255))
+            self.pixel(x-2, y+2, (255,255,255))
+            self.pixel(x, y+2, (255,255,255))
+            self.pixel(x+2, y+2, (255,255,255))
             pygame.display.flip()
 
     def pixel(self, x, y, color):
@@ -163,13 +171,13 @@ class Life(object):
                         self.pixel(i, j, (255, 255, 255))
 
 pygame.init()
-width = 100
-height = 100
+width = 300
+height = 300
 screen = pygame.display.set_mode((width, height))
 
 r = Life(screen)
 r.clear()
-r.initial()
+r.initial(width, height)
 
 while True:
     pygame.time.delay(1)
